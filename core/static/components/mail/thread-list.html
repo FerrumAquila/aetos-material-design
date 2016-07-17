@@ -1,0 +1,24 @@
+<li data-bind="css: {'open': is_open}">
+    <a class="tm-message" href="" data-bind="click: open"><i class="tmn-counts" data-bind="text: threads().length"></i></a>
+    <div class="dropdown-menu dropdown-menu-lg pull-right mail-list">
+        <div class="mail-detail-box" data-bind="css: {'hide': selectedThread() == null}">
+            <thread-detail params="{value: selectedThread()}"></thread-detail>
+        </div>
+        <div class="listview">
+            <div class="lv-header">
+                Messages
+            </div>
+            <div class="lv-body c-overflow" tabindex="1" data-bind="foreach: threads">
+                <a class="lv-item" href="#" data-bind="click: $parent.selectThread, css: { 'selected': $data == $parent.selectedThread()}">
+                    <div class="media">
+                        <div class="media-body m-0">
+                            <div class="lv-title" data-bind="text: s_from"></div>
+                            <small class="lv-small" data-bind="text: subject"></small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <span class="lv-footer"></span>
+        </div>
+    </div>
+</li>

@@ -1,0 +1,10 @@
+<div>
+    <a href="#" data-bind="click: add_attachment">
+    <i class="md md-add-circle-outline"></i> attachments</a>
+    <div data-bind="foreach: uploaders">
+        <div class="multi-fileinput">
+            <file-upload params="{url: instance.url, afterUpload: instance.afterUpload, showRemove: true, attachment: attachment, onRemove: onRemove, afterUpload: afterUpload }"></file-upload>
+            <a href="#" class="pull-right m-t-10" data-bind="click: $parent.remove_attachment"><i class="md md-remove-circle-outline"></i></a>
+        </div>
+    </div>
+</div>

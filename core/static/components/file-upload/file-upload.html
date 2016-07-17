@@ -1,0 +1,15 @@
+<div class="fileinput" data-bind="css: {'fileinput-new': !file(), 'fileinput-exists': file() }">
+    <span class="fileinput-new btn btn-default btn-file m-r-10 waves-effect waves-button waves-float">
+        <span class="fileinput-new">Add file</span>
+        <!--span class="fileinput-exists">Change</span-->
+        <input type="file" name="file" data-bind="event: {'change': file_added}">
+    </span>
+    <div class="progress fileinput-exists">
+        <span class="label fileinput-filename" data-bind="text: filename"></span>
+        <div class="progress-bar progress-bar-success" data-bind="style: {'width': completion() + '%'}">
+        </div>
+    </div>
+    <!-- ko if: showRemove -->
+    <a href="#" class="pull-right close fileinput-exists" data-bind="click: onRemove">×</a>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aetos Kodika</title>
+
+        <!-- Vendor CSS -->
+        <link href="{% static 'vendors/fullcalendar/fullcalendar.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/animate-css/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/sweet-alert/sweet-alert.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/material-icons/material-design-iconic-font.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendors/socicon/socicon.min.css' %}" rel="stylesheet">
+
+        <!-- CSS -->
+        <link href="{% static 'css/app.min.1.css' %}" rel="stylesheet">
+        <link href="{% static 'css/app.min.2.css' %}" rel="stylesheet">
+
+        {% block header_css %}
+        {% endblock %}
+
+        {% block header_js %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <header id="header">
+            <ul class="header-inner">
+                <li class="logo hidden-xs">
+                    <a href="{% url 'core-home' %}">Core Home</a>
+                </li>
+
+                <li class="pull-right">
+                    <ul class="top-menu">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="tm-settings" href=""></a>
+                            <ul class="dropdown-menu dm-icon pull-right">
+                                <li>
+                                    <a data-action="fullscreen" href=""><i class="md md-fullscreen"></i> Toggle Full Screen</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <section id="main">
+            <section id="content">
+                <div class="container">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </section>
+        </section>
+    </body>
+
+    <!-- Javascript Libraries -->
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'knockout-3.3.0.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'vendors/flot/jquery.flot.min.js' %}"></script>
+    <script src="{% static 'vendors/flot/jquery.flot.resize.min.js' %}"></script>
+    <script src="{% static 'vendors/flot/plugins/curvedLines.js' %}"></script>
+    <script src="{% static 'vendors/sparklines/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'vendors/easypiechart/jquery.easypiechart.min.js' %}"></script>
+
+    <script src="{% static 'vendors/fullcalendar/lib/moment.min.js' %}"></script>
+    <script src="{% static 'vendors/fullcalendar/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'vendors/simpleWeather/jquery.simpleWeather.min.js' %}"></script>
+    <script src="{% static 'vendors/auto-size/jquery.autosize.min.js' %}"></script>
+    <script src="{% static 'vendors/nicescroll/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'vendors/waves/waves.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-growl/bootstrap-growl.min.js' %}"></script>
+    <script src="{% static 'vendors/sweet-alert/sweet-alert.min.js' %}"></script>
+
+    <script src="{% static 'js/flot-charts/curved-line-chart.js' %}"></script>
+    <script src="{% static 'js/flot-charts/line-chart.js' %}"></script>
+    <script src="{% static 'js/charts.js' %}"></script>
+
+    <script src="{% static 'js/charts.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+
+    {% block footer_css %}
+    {% endblock %}
+
+    {% block footer_js %}
+    {% endblock %}
+</html>

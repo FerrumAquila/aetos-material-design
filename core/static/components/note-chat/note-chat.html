@@ -1,0 +1,28 @@
+<div class="listview lv-bordered lv-lg">
+	<div class="lv-header-alt">
+		<div class="row">
+		    <div class="col-sm-10">
+		        <div class="form-group fg-line z-depth-1 m-b-0">
+		            <textarea class="auto-size form-control input-sm p-5 bgm-transparent" id="exampleInputEmail2" placeholder="Type here..." data-bind="value: new_text, event: {keypress: enterKeyPress}, valueUpdate: 'afterkeydown'"></textarea>
+		        </div>
+		    </div>
+		    <div class="col-sm-2">
+		        <span class="btn btn-success btn-sm waves-effect waves-button waves-float" data-bind="click: addNote()">Comment</span>
+		    </div>
+		</div>
+	</div>
+</div>
+<div class="lv-body" data-bind="foreach: notes().reverse()">
+	<div class="lv-item media">
+		<div class="row">
+	        <div class="col-sm-2">
+	        	<div class="lv-title" data-bind="text: $data.writer, visible: !($data.writer == $parent.username)"></div>
+	        	<span class="col-sm-2" data-bind="text: 'You', visible: $data.writer == $parent.username"></span>
+	        </div>
+	        <div class="col-sm-8" data-bind="text: $data.text"></div>
+	        <div class="col-sm-2">
+	        	<small class="lv-small" data-bind="text: $data.timestamp"></small>
+	        </div>
+		</div>
+	</div>
+</div>
