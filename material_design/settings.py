@@ -8,16 +8,16 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Vishesh "ironeagle" Bangotra', 'visheshbangotra@gmail.com'),
+
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'material_design',
-        'USER': 'root',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'default_db.sqlite3',
+        'USER': '',
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
@@ -153,3 +153,9 @@ LOGGING = {
         },
     }
 }
+
+# noinspection PyBroadException
+try:
+    from local_settings import *
+except:
+    pass
