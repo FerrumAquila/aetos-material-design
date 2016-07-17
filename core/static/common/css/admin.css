@@ -1,0 +1,44 @@
+.role-form.toggled {
+    width: 500px;
+    height:300px;
+}
+.permission-form.toggled {
+    width: 200px;
+    height: 300px;
+}
+.callback-form.toggled {
+    width: 300px;
+    height: 300px;
+}
+.trigger-form.toggled {
+    width: 300px;
+    height: 300px;
+}
+.condition-form.toggled {
+    width: 300px;
+    height: 300px;
+}
+.state-form.toggled {
+    width: 500px;
+    height: 500px;
+}
+.disposition-form.toggled {
+    width: 500px;
+    height: 400px;
+}
+.statedisposition-form.toggled {
+    width: 500px;
+    height: 400px;
+}
+.transition-form.toggled {
+    width: 900px;
+    height: 900px;
+}
+.nontransition-form.toggled {
+    width: 900px;
+    height: 900px;
+}
+.machine-form.toggled {
+    width: 900px;
+    height: 900px;
+}

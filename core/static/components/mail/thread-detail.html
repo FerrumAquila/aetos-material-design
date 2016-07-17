@@ -1,0 +1,127 @@
+<!-- ko if: thread() -->
+<div class="card" data-bind="with: thread()">
+    <div class="listview lv-bordered lv-lg lv-email">
+        <div class="lv-header-alt bgm-blue">
+            <h2 class="lvh-label c-white f-500 hidden-xs" data-bind="text: subject"></h2>
+            <ul class="lv-actions actions">
+                <li>
+                    <a href="" title="Close thread">
+                        <i class="md md-clear c-white"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="lv-attrs" data-bind="foreach: labels">
+            <li data-bind="text: label_id"></li>
+        </ul>
+
+        <div class="lv-body" style="height: auto;" data-bind="foreach: sorted_mails()">
+            <div class="lv-item media p-r-10" style="cursor: pointer" data-bind="ifnot: is_selected(), click: select,css:{'hide': is_selected()}">
+                <table class="lv-table" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr class="limitTR">
+                        <td class="bigTD" style="width: auto;"><strong class="f-500 c-black" data-bind="text: from_contact.name + ' <' + from_contact.email + '>'"></strong></td>
+                        <td class="bigTD p-r-20 p-l-20">
+                            <table cellpadding="0" cellspacing="0" class="lv-table-inner">
+                                <tbody><tr><td>
+                                    <div class="overEllipsis" data-bind="text: snippet"></div>
+                                </td></tr></tbody>
+                            </table>
+                        </td>
+                        <td class="smallTD p-l-20"><small class="f-500 c-black" data-bind="text: received_on.toLocaleString()"></small></td>
+                        <td class="smallTD p-l-10">
+                            <a title="Expand more" href="#" style="font-size:20px;" class="btn mTCr p-t-0 p-b-0 btn-link btn-sm" data-bind="click: select, clickBubble:false">
+                                <i class="md md-unfold-more"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="lv-item media b-0 p-t-0 p-b-30 p-r-35 exP" data-bind="if: is_selected(), css: {'hide': !is_selected()}">
+                <div class="l-hdr">
+                    <table class="lv-table" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr class="limitTR">
+                            <td class="bigTD"><h4 class="m-t-0 m-b-5 c-black" data-bind="text: from_contact.name + ' <' + from_contact.email + '>'"></h4></td>
+                            <td class="smallTD p-l-20"><small class="f-500 c-black" data-bind="text:received_on.toLocaleString()"></small></td>
+                            <td class="smallTD p-l-20 actions">
+                                <a href="#" data-bind="click: toggle_reply, clickBubble:false">
+                                    <i class="md md-reply"></i>
+                                </a>
+                            </td>
+                            <td class="smallTD p-l-10">
+                                <div>
+                                    <a title="Expand less" href="#" style="font-size:20px;" class="btn mTCr p-t-0 p-b-0 btn-link btn-sm" data-bind="click: select, clickBubble:false">
+                                        <i class="md md-unfold-less"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="limitTR">
+                            <td colspan="3">
+                                <small>
+                                    <strong>To:&nbsp;</strong>
+                                    <span data-bind="foreach: to()">
+                                        <!-- ko: if $index < 4 -->
+                                        <span data-bind="text: name + ' <' + email + '>,'"></span>
+                                        <!-- /ko -->
+                                    </span>
+                                </small>
+                                <br/>
+                                <small>
+                                    <strong data-bind="if: cc().length">CC:&nbsp;</strong>
+                                    <span data-bind="foreach: cc()">
+                                        <span data-bind="text: name + ','"></span>
+                                    </span>
+                                </small>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="l-bdy">
+                    <!-- ko if: html() -->
+                    <p data-bind="html: html()"></p>
+                    <!-- /ko -->
+                    <!-- ko if: body() && !html() -->
+                    <p data-bind="text: body()"></p>
+                    <!-- /ko -->
+                    <div data-bind="if: attachments().length > 0">
+                        <hr/>
+                        <div class="m-b-10"><strong data-bind="text: attachments().length + ' attachments'"></strong></div>
+                        <div class="row" data-bind="foreach: attachments">
+                            <div class="col-sm-4 col-xs-6">
+                                <div class="bs-item z-depth-1 p-10">
+                                    <a data-bind="href: url" target="_blank"><i class="md md-file-download m-l-5"></i></a>
+                                    <i class="md md-open-in-new m-l-5"></i>
+                                    <span data-bind="text: filename"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <table class="lv-table" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td class="bigTD p-r-10">
+                                <div data-bind="if: reply_activated">
+                                    <compose-reply params="{mail: $data, afterSend: mail_sent}"></compose-reply>
+                                </div>
+                            </td>
+                            <td class="smallTD p-l-10" style="vertical-align: top;">
+                                <a href="#" class="btn bgm-lightblue waves-effect waves-button waves-float btn-sm" data-bind="click: toggle_reply, clickBubble:false">
+                                    <span data-bind="if: reply_activated">Cancel reply</span>
+                                    <span data-bind="ifnot: reply_activated"><i class="md md-reply"></i> Reply</span>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
