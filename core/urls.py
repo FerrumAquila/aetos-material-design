@@ -7,4 +7,5 @@ import docs as app_docs
 
 urlpatterns = [
     url(r'^home/$', app_views.home, name='core-home'),
+    url(r'^$', app_views.home, name='core-home'),
 ] + app_docs.urlpatterns
