@@ -1,6 +1,8 @@
 {% extends "core/base.html" %}
 {% load staticfiles %}
-{% block content %}
 
-<h1>HOME</h1>
+{% block content %}
+<ul class="clist clist-angle">
+    <li><a href={% url 'core-docs-home' %}>Read Material Design Docs</a></li>
+</ul>
 {% endblock %}
