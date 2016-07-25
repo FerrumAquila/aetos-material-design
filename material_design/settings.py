@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'django_extensions',
 
     'core',
+    'notice_board',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -7,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^core/', include('core.urls')),
+    url(r'^notice-board/', include('notice_board.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 ] + static(
@@ -14,4 +15,3 @@ urlpatterns = [
 ) + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
-
