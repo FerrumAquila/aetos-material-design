@@ -2,7 +2,35 @@
 {% load staticfiles %}
 
 {% block content %}
-<ul class="clist clist-angle">
-    <li><a href="{% url 'core-docs-home' %}">Read Material Design Docs</a></li>
-</ul>
+<section id="content" style="padding: 30px 30px 30px 30px;">
+    <div class="container">
+        <div class="card">
+            <div class="listview lv-bordered lv-lg">
+                <div class="lv-header-alt">
+                    <h2 class="lvh-label hidden-xs">Project Links</h2>
+                </div>
+
+                <div class="lv-body">
+                    <div class="lv-item media">
+                        <div class="media-body">
+                            <div class="lv-title">
+                                <a href="{% url 'core-docs-home' %}">Read Material Design Docs</a>
+                            </div>
+                            <small class="lv-small">Material Design Templates and Docs from where you can copy and use Material elements</small>
+                        </div>
+                    </div>
+
+                    <div class="lv-item media">
+                        <div class="media-body">
+                            <div class="lv-title">
+                                <a href="{% url 'notice-board-home' %}">Notice Board Home Page</a>
+                            </div>
+                            <small class="lv-small">Notice Board for Founders to post about their Start-ups</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
